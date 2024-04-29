@@ -2,54 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Social Media Review</title>
-    <link rel="stylesheet" type="text/css" href="MSMC.css" />
+    <link rel="stylesheet" type="text/css" href="MTIC.css" />
   </head>
 
   <body>
-    <div class="video-background">
-      <video id="background-video" loop muted autoplay>
-        <source src="Video1.mp4" type="video/mp4" />
-        Dein Browser unterstützt kein Video.
-      </video>
+    <div id="tiktok-section" class="social-section">
+      <img
+        src="Images/tiktok-7002866_1280.webp"
+        alt="TikTok Logo"
+        class="logoTiktok"
+      />
+      <!-- Füge das TikTok-Logo ein -->
+      <h2>My TikTok Content</h2>
+      <!-- Weitere Inhalte wie Vorschauen, Links usw. können hier hinzugefügt werden -->
     </div>
-    <div id="Banner">
-      <h1>Welcome to my Social Media Content Review</h1>
+    <div id="instagram-section" class="social-section">
+      <img
+        src="Images/Instagram_logo_2016.svg.webp"
+        alt="Instagram Logo"
+        class="logoInsta"
+      />
+      <!-- Füge das Instagram-Logo ein -->
+      <h2>My Instagram Content</h2>
+      <!-- Weitere Inhalte wie Vorschauen, Links usw. können hier hinzugefügt werden -->
     </div>
-
-    <section id="GeneralDescription">
-      <div class="Textbox">
-        <h2 id="TextboxHeadline">What do you find here?</h2>
-        <p id="TextboxContent">
-          See some examples from my social media accounts. <br />I am hoping for
-          a visit and follow. At the same time im doing this site for Web-Dev
-          <br />
-          training, to learn more about webdesign. <br />
-          Thank you for visiting me and i hope you enjoy my content.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <div class="carousel">
-        <div class="carousel-images">
-          <img src="foto7.jpg" alt="Bild 1" />
-          <img src="foto8.jpg" alt="Bild 2" />
-          <img src="foto9.jpg" alt="Bild 3" />
-          <img src="foto10.jpg" alt="Bild 4" />
-          <img src="foto11.jpg" alt="Bild 5" />
-          <img src="foto12.jpg" alt="Bild 6" />
-          <img src="foto13.jpg" alt="Bild 7" />
-          <img src="foto14.jpeg" alt="Bild 8" />
-        </div>
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
-      </div>
-      <div id="overlay" onclick="closeOverlay()">
-        <img id="overlayImage" src="" alt="Vergrößertes Bild" />
-      </div>
-    </section>
-
-    <script src="MSMC.js"></script>
+    <button
+      id="reset-button"
+      style="position: fixed; bottom: 20px; right: 20px"
+    >
+      Zurück
+    </button>
   </body>
+  <script src="MSMC.js"></script>
 </html>

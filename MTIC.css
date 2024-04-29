@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex; /* Macht den Body zum Flex-Container */
+  flex-direction: row; /* Ordnet die Kinderelemente horizontal an */
+  font-family: Arial, sans-serif;
+}
+.social-section {
+  flex: 1;
+  box-sizing: border-box;
+  height: 100vh; /* Vollständige Bildschirmhöhe */
+  display: flex;
+  align-items: center; /* Zentriert den Inhalt vertikal */
+  justify-content: center; /* Zentriert den Inhalt horizontal */
+  color: white;
+  cursor: pointer; /* Ändert den Mauszeiger zu einem Handzeiger */
+  width: 50%;
+
+  transition: width 0.5s ease, transform 0.5s ease;
+  overflow: hidden;
+  position: relative; /* Wichtig für die Positionierung der Kinderelemente */
+}
+
+#tiktok-section {
+  background-color: #69c9d0; /* TikTok Blau */
+}
+
+#instagram-section {
+  background-color: #c13584; /* Instagram Lila */
+}
+
+#tiktok-section.expanded,
+#instagram-section.expanded {
+  width: 100%; /* Nimmt bei Aktivierung die volle Breite ein */
+  flex: none;
+}
+
+#tiktok-section.expanded ~ #instagram-section,
+#instagram-section.expanded ~ #tiktok-section {
+  display: none; /* Versteckt den nicht aktiven Abschnitt */
+}
+
+.social-section.expanded {
+  width: 100%;
+  flex: none;
+}
+
+.social-section.expanded ~ .social-section {
+  display: none;
+}
+
+.logoTiktok {
+  height: 60px; /* Startgröße */
+  transition: transform 0.5s ease, height 0.5s ease;
+}
+
+.social-section.expanded .logoTiktok {
+  transform: translateY(-20%); /* Bewegt das Logo nach oben */
+  height: 100px; /* Neue Größe des Logos */
+}
+
+.social-section h2 {
+  transition: transform 0.5s ease, font-size 0.5s ease;
+  font-size: 2em; /* Startgröße */
+  margin: 0; /* Entfernt jeglichen Standardabstand */
+  transform: translateY(0); /* Startposition */
+}
+
+.social-section.expanded h2 {
+  transform: translateY(-400px); /* Passt die vertikale Position an */
+  font-size: 3em; /* Vergrößert die Schrift */
+}
+
+.social-section h1 {
+  transform: translateY(-50px); /* Hebt den Titel in der normalen Ansicht an */
+}
+
+.logoTiktok {
+  transition: transform 0.5s ease, height 0.5s ease;
+  height: 60px; /* Startgröße */
+  align-self: center; /* Stellt sicher, dass das Logo zentriert ist */
+  transform: translateY(0); /* Leichte Anhebung von der Basisposition */
+
+  margin-right: 20px;
+}
+
+.logoTiktok,
+.logoInsta {
+  will-change: transform, height, opacity;
+}
+
+.social-section.expanded .logoTiktok {
+  transform: translate3d(-600px, 0px, 0); /* Nutzt 3D-Transformation */
+  height: 150px; /* Vergrößert das Logo */
+  align-self: flex-start;
+  margin-top: 40px;
+}
+
+.logoInsta {
+  height: 60px; /* Startgröße */
+  transition: transform 0.5s ease, height 0.5s ease;
+}
+
+.social-section.expanded .logoInsta {
+  transform: translateY(-20%); /* Bewegt das Logo nach oben */
+  height: 150px; /* Neue Größe des Logos */
+}
+
+.logoInsta {
+  transition: transform 0.5s ease, height 0.5s ease;
+  height: 60px; /* Startgröße */
+  align-self: center; /* Stellt sicher, dass das Logo zentriert ist */
+  transform: translateY(0); /* Leichte Anhebung von der Basisposition */
+
+  margin-right: 20px;
+}
+
+.social-section.expanded .logoInsta {
+  transform: translateY(0px) translateX(-550px); /* Verschiebt das Logo nach oben links */
+  height: 150px; /* Vergrößert das Logo */
+  align-self: flex-start;
+  margin-top: 40px;
+}
+
+.logoTiktok:hover {
+  height: 80px;
+}
+
+.logoInsta:hover {
+  height: 80px;
+}
+
+#reset-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #333; /* Dunkler Hintergrund für einen modernen Look */
+  border: none;
+  border-radius: 5px; /* Abgerundete Ecken */
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease; /* Weiche Übergänge für Hover-Effekte */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtiler Schatten für Tiefe */
+}
+
+#reset-button:hover {
+  background-color: #555; /* Etwas hellerer Hintergrund beim Hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Erhöhter Schatten für mehr Tiefe */
+  transform: translateY(-2px); /* Sorgt für einen leichten "Lift"-Effekt */
+}
+
+#reset-button:focus,
+#reset-button:active {
+  outline: none; /* Entfernt den Browser-Standardfokus-Rand */
+  background-color: #666; /* Dunklere Farbe für den Aktivzustand */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Intensiverer Schatten für den Aktivzustand */
+}
+
+/*========================================MediaQuerry====================================*/
+@media (max-width: 800px) {
+  body {
+    flex-direction: column; /* Ändert die Flex-Richtung auf kleineren Bildschirmen */
+  }
+
+  .social-section {
+    width: 100%;
+    height: 50vh; /* Passt die Höhe an, damit jeder Abschnitt die Hälfte des Bildschirms einnimmt */
+  }
+}
