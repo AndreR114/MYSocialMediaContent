@@ -33,7 +33,10 @@ body {
 #tiktok-section.expanded,
 #instagram-section.expanded {
   width: 100%; /* Nimmt bei Aktivierung die volle Breite ein */
-  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert die Inhalte horizontal */
+  justify-content: center; /* Zentriert die Inhalte vertikal */
 }
 
 #tiktok-section.expanded ~ #instagram-section,
@@ -68,12 +71,8 @@ body {
 }
 
 .social-section.expanded h2 {
-  transform: translateY(-400px); /* Passt die vertikale Position an */
+  transform: translate3d(0px, -150px, 0); /* Nutzt 3D-Transformation */
   font-size: 3em; /* Vergrößert die Schrift */
-}
-
-.social-section h1 {
-  transform: translateY(-50px); /* Hebt den Titel in der normalen Ansicht an */
 }
 
 .logoTiktok {
@@ -90,8 +89,12 @@ body {
   will-change: transform, height, opacity;
 }
 
+.social-section h2 {
+  will-change: transform, font-size, opacity;
+}
+
 .social-section.expanded .logoTiktok {
-  transform: translate3d(-600px, 0px, 0); /* Nutzt 3D-Transformation */
+  transform: translate3d(20px, -150px, 0); /* Nutzt 3D-Transformation */
   height: 150px; /* Vergrößert das Logo */
   align-self: flex-start;
   margin-top: 40px;
@@ -160,7 +163,62 @@ body {
   background-color: #666; /* Dunklere Farbe für den Aktivzustand */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Intensiverer Schatten für den Aktivzustand */
 }
+/*=============================================Bis hier ist es das Grundgerüst==============================*/
+.gallery-container-tiktok {
+  display: none;
+  width: 50%;
+  max-width: 500px; /* Anpassen basierend auf dem gewünschten Layout */
+  overflow: hidden;
+  position: relative;
+  margin: 20px auto;
+}
 
+.gallery-slider-tiktok {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-slider-tiktok img {
+  width: 100%; /* Jedes Bild nimmt die volle Breite des Containers ein */
+  flex-shrink: 0; /* Verhindert das Verzerren der Bilder */
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  opacity: 1;
+  cursor: pointer;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+.social-section.expanded .gallery-container-tiktok {
+  display: block; /* Zeigt die Galerie nur im expandierten Zustand */
+}
+
+button.prev.disabled,
+button.next.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 /*========================================MediaQuerry====================================*/
 @media (max-width: 800px) {
   body {
